@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Contenido</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+
+<style>
+body{margin:0;font-family:Inter;background:#050505;color:#fff}
+section{min-height:100vh;display:flex;align-items:center}
+.container{max-width:1200px;padding:14vh 6vw;margin:auto}
+h1{font-size:clamp(4rem,9vw,8rem)}
+p{max-width:720px;color:rgba(255,255,255,.6)}
+</style>
+</head>
+
+<body>
+
+<section>
+  <div class="container">
+    <h1 class="scale">Contenido visual<br>que destaca</h1>
+    <p class="fade">Video, motion, social.</p>
+  </div>
+</section>
+
+<div id="page-transition"></div>
+
+<script>
+gsap.from(".fade",{opacity:0,duration:1.2});
+gsap.from(".scale",{scale:.85,opacity:0,duration:1.4,ease:"expo.out"});
+gsap.fromTo("#page-transition",
+  {scaleY:1,transformOrigin:"top"},
+  {scaleY:0,duration:.8,ease:"power4.inOut"}
+);
+</script>
+
+</body>
+</html>
