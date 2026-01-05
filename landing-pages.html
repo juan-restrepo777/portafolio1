@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Landing Pages</title>
+<title>Landing Pages que convierten</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800;900&display=swap" rel="stylesheet">
@@ -10,11 +10,136 @@
 <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 
 <style>
-body{margin:0;font-family:Inter;background:#050505;color:#fff}
-section{min-height:100vh;display:flex;align-items:center}
-.container{max-width:1200px;padding:14vh 6vw;margin:auto}
-h1{font-size:clamp(4rem,9vw,8rem)}
-p{max-width:720px;color:rgba(255,255,255,.6)}
+body{
+  margin:0;
+  font-family:Inter;
+  background:#050505;
+  color:#fff;
+}
+section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+}
+.container{
+  max-width:1200px;
+  padding:14vh 6vw;
+  margin:auto;
+}
+h1{
+  font-size:clamp(4rem,9vw,8rem);
+  line-height:1;
+}
+h2{
+  font-size:clamp(2rem,4vw,3rem);
+  margin-bottom:1rem;
+}
+p{
+  max-width:720px;
+  color:rgba(255,255,255,.6);
+  font-size:1.05rem;
+}
+
+/* GALERÍA */
+.projects{
+  display:flex;
+  flex-direction:column;
+  gap:20vh;
+}
+.project{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:4vw;
+  align-items:center;
+}
+.project img{
+  width:100%;
+  border-radius:12px;
+  opacity:.85;
+}
+.project-info span{
+  color:rgba(255,255,255,.4);
+  font-size:.85rem;
+  letter-spacing:.05em;
+}
+.project-info h3{
+  font-size:2.2rem;
+  margin:.6rem 0;
+}
+.project-info a{
+  color:#fff;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.3);
+  padding-bottom:2px;
+}
+
+.cta{
+  text-align:center;
+}
+.cta h2{
+  font-size:clamp(3rem,6vw,5rem);
+}
+
+form{
+  margin-top:4rem;
+  max-width:520px;
+}
+
+label{
+  display:block;
+  font-size:.8rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.4);
+  margin-bottom:.4rem;
+}
+
+input, textarea{
+  width:100%;
+  background:transparent;
+  border:none;
+  border-bottom:1px solid rgba(255,255,255,.2);
+  padding:.8rem 0;
+  color:#fff;
+  font-family:Inter;
+  font-size:1rem;
+  margin-bottom:2.2rem;
+}
+
+input:focus, textarea:focus{
+  outline:none;
+  border-color:#fff;
+}
+
+button{
+  background:none;
+  border:1px solid rgba(255,255,255,.4);
+  color:#fff;
+  padding:.9rem 2.4rem;
+  font-size:.9rem;
+  letter-spacing:.1em;
+  cursor:pointer;
+}
+
+button:hover{
+  border-color:#fff;
+}
+
+.cta-link{
+  text-decoration:none;
+  color:#fff;
+  display:inline-block;
+}
+
+.cta-link:hover h2{
+  letter-spacing:.02em;
+}
+
+.cta-link h2,
+.cta-link p{
+  transition:.3s ease;
+}
+
 </style>
 </head>
 
@@ -23,32 +148,140 @@ p{max-width:720px;color:rgba(255,255,255,.6)}
 <section>
   <div class="container">
     <h1 class="fade">Landing Pages<br>que convierten</h1>
-    <p class="slide">Diseñadas para captar, retener y vender.</p>
+    <p class="slide">Diseño, UX y estrategia. No plantillas.</p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2 class="twist">Qué hacemos</h2>
-    <p class="fade">UX, copy, estructura, performance.</p>
+    <h2 class="twist">Qué hago</h2>
+    <p class="fade">
+      Diseño landing pages enfocadas en conversión, claridad y decisión.
+      Cada proyecto responde a un objetivo real de negocio.
+    </p>
   </div>
 </section>
 
-<div id="page-transition"></div>
+<section>
+  <div class="container">
+    <h2 class="fade">Proyectos</h2>
+
+    <div class="projects">
+
+      <div class="project reveal">
+        <img src="micro-landing.png" alt="Landing Proyecto 1">
+        <div class="project-info">
+          <span>LANDING PAGE · CONVERSIÓN</span>
+          <h3>Micro-landing comercial</h3>
+          <p>Diseñé una micro-landing para centralizar tráfico y aumentar clics a WhatsApp y catálogo.</p>
+          <a href="micro-landing.html" target="_blank">Ver demo</a>
+        </div>
+      </div>
+
+      <div class="project reveal">
+        <img src="pagina-puente.png" alt="Landing Proyecto 2">
+        <div class="project-info">
+          <span>MARCA · PRESENTACIÓN</span>
+          <h3>Página puente</h3>
+          <p>Página puente enfocada en redirigir tráfico a productos clave y contacto directo.</p>
+          <a href="pagina-puente.html">Ver demo</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="fade">Cómo trabajo</h2>
+    <p class="slide">
+      Estrategia → Diseño → Optimización.
+      Sin ruido. Sin improvisar.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container cta">
+    <a href="#contacto" class="cta-link">
+      <h2 class="fade">¿Necesitas una landing?</h2>
+      <p class="slide">Hablemos de tu proyecto.</p>
+    </a>
+  </div>
+</section>
+<section id="contacto">
+  <div class="container">
+    <h2 class="twist">Hablemos</h2>
+    <p class="fade">Construyamos algo incómodo.</p>
+
+    <form class="scale" action="https://formspree.io/f/mwpwgzww" method="POST">
+      <label>Nombre</label>
+      <input name="nombre" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Mensaje</label>
+      <textarea name="mensaje" rows="4" required></textarea>
+
+      <button>Enviar</button>
+    </form>
+  </div>
+</section>
 
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.from(".fade",{opacity:0,duration:1.2});
-gsap.from(".slide",{y:100,opacity:0,duration:1.2});
-gsap.from(".twist",{rotate:-6,y:100,opacity:0,duration:1.2});
+gsap.from(".fade",{
+  opacity:0,
+  y:40,
+  duration:1.4,
+  ease:"power3.out"
+});
 
-/* transition */
-gsap.fromTo("#page-transition",
-  {scaleY:1,transformOrigin:"top"},
-  {scaleY:0,duration:.8,ease:"power4.inOut"}
-);
+gsap.from(".slide",{
+  opacity:0,
+  y:80,
+  duration:1.4,
+  delay:.2,
+  ease:"power3.out"
+});
+
+gsap.from(".twist",{
+  opacity:0,
+  y:60,
+  rotate:-4,
+  duration:1.2,
+  ease:"power3.out"
+});
+
+gsap.utils.toArray(".project").forEach((project,i)=>{
+  gsap.from(project,{
+    scrollTrigger:{
+      trigger:project,
+      start:"top 75%"
+    },
+    y:120,
+    opacity:0,
+    duration:1.4,
+    delay:i * .1,
+    ease:"power3.out"
+  });
+});
+
+gsap.from(".scale",{
+  scrollTrigger:{
+    trigger:"#contacto",
+    start:"top 70%"
+  },
+  scale:.95,
+  opacity:0,
+  duration:1.2,
+  ease:"power3.out"
+});
 </script>
+
 
 </body>
 </html>
