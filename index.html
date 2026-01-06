@@ -30,6 +30,50 @@
       overflow-x: hidden;
     }
 
+    #intro-video {
+      position: fixed;
+      inset: 0;
+      background: #050505;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #intro-video video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+
+    .nav-min {
+      position: fixed;
+      top: 28px;
+      left: 28px;
+      z-index: 999;
+      pointer-events: auto;
+    }
+
+    .nav-min a {
+      font-weight: 800;
+      font-size: .9rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .7);
+      text-decoration: none;
+      padding: .6rem 1.2rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, .35);
+      backdrop-filter: blur(10px);
+      transition: all .3s ease;
+    }
+
+    .nav-min a:hover {
+      color: #fff;
+      background: rgba(0, 0, 0, .6);
+      transform: translateX(-4px);
+    }
+
     section {
       position: relative;
       min-height: 100vh;
@@ -278,7 +322,6 @@
       transform: translateX(6px);
     }
 
-    /* ================= PAGE TRANSITION ================= */
 
     #page-transition {
       position: fixed;
@@ -307,9 +350,16 @@
 </head>
 
 <body>
-
+  <div id="intro-video">
+    <video autoplay muted playsinline>
+      <source src="intro.mp4" type="video/mp4">
+    </video>
+  </div>
+  <nav class="nav-min">
+    <a href="index.html">← Inicio</a>
+  </nav>
   <section>
-    <video class="video-bg" autoplay muted loop playsinline src="hero.mp4"></video>
+    <video class="video-bg" autoplay muted loop playsinline src="video/hero.mp4"></video>
     <div class="overlay"></div>
     <div class="grain"></div>
 
@@ -322,7 +372,7 @@
   </section>
 
   <section>
-    <video class="video-bg" autoplay muted loop playsinline src="manifiesto.mp4"></video>
+    <video class="video-bg" autoplay muted loop playsinline src="video/manifiesto.mp4"></video>
     <div class="overlay"></div>
 
     <div class="container">
@@ -336,7 +386,7 @@
     <div class="container">
       <h2 class="slide">Visual como lenguaje</h2>
       <p class="fade">Imagen, ritmo y narrativa.</p>
-      <img class="scale" src="visual.png">
+      <img class="scale" src="img/visual.png">
     </div>
     <div class="blend"></div>
   </section>
@@ -461,9 +511,33 @@
         });
       });
     });
+    const intro = document.getElementById("intro-video");
+    const introVideo = intro.querySelector("video");
+
+    introVideo.play();
+
+    setTimeout(() => {
+      gsap.to(intro, {
+        y: "100%",
+        duration: 1,
+        ease: "power4.inOut",
+        onComplete: () => {
+          introVideo.pause();
+          intro.remove();
+        }
+      });
+    }, 3000);
+
+
   </script>
   <div id="page-transition"></div>
-</body>
+  <svg width="0" height="0">
+    <filter id="melt">
+      <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="2" seed="2" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" />
+    </filter>
+  </svg>
 
+</body>
 
 </html>
