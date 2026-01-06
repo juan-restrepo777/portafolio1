@@ -24,6 +24,33 @@
       background-size:cover;
       background-position:center;
     }
+        .nav-min {
+            position: fixed;
+            top: 28px;
+            left: 28px;
+            z-index: 999;
+            pointer-events: auto;
+        }
+
+        .nav-min a {
+            font-weight: 800;
+            font-size: .9rem;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .7);
+            text-decoration: none;
+            padding: .6rem 1.2rem;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, .35);
+            backdrop-filter: blur(10px);
+            transition: all .3s ease;
+        }
+
+        .nav-min a:hover {
+            color: #fff;
+            background: rgba(0, 0, 0, .6);
+            transform: translateX(-4px);
+        }
 
     .container{
       text-align:center;
@@ -93,7 +120,9 @@
 </head>
 
 <body>
-
+  <div class="nav-min">
+        <a href="../landing-pages.html">← Volver</a>
+    </div>
   <div class="container">
     <div class="profile-pic">
       <img src="/carlitos_le_vende/media/foto de perfil.jpg" alt="Foto de perfil">
@@ -137,3 +166,4 @@
 
 </body>
 </html>
+
