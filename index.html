@@ -359,9 +359,9 @@
     <a href="index.html">← Inicio</a>
   </nav>
   <section>
-    <video class="video-bg" autoplay muted loop playsinline src="hero.mp4"></video>
-    <div class="overlay"></div>
-    <div class="grain"></div>
+   <video class="video-bg" autoplay muted loop playsinline preload="auto">
+  <source src="hero.mp4" type="video/mp4">
+</video>
 
     <div class="container">
       <h1 class="fade">Design<br>that<br>interrupts</h1>
@@ -372,8 +372,10 @@
   </section>
 
   <section>
-    <video class="video-bg" autoplay muted loop playsinline src="manifiesto.mp4"></video>
-    <div class="overlay"></div>
+    <video class="video-bg" autoplay muted loop playsinline preload="auto">
+  <source src="manifiesto.mp4" type="video/mp4">
+</video>
+
 
     <div class="container">
       <h2 class="twist">El scroll<br>no espera</h2>
@@ -541,5 +543,6 @@
 </body>
 
 </html>
+
 
 
