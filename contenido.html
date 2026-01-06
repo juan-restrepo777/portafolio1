@@ -21,6 +21,34 @@ body{
   background:#050505;
   color:#fff;
 }
+ .nav-min {
+      position: fixed;
+      top: 28px;
+      left: 28px;
+      z-index: 999;
+      pointer-events: auto;
+    }
+
+    .nav-min a {
+      font-weight: 800;
+      font-size: .9rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .7);
+      text-decoration: none;
+      padding: .6rem 1.2rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, .35);
+      backdrop-filter: blur(10px);
+      transition: all .3s ease;
+    }
+
+    .nav-min a:hover {
+      color: #fff;
+      background: rgba(0, 0, 0, .6);
+      transform: translateX(-4px);
+    }
+
 section{
   min-height:100vh;
   display:flex;
@@ -159,7 +187,9 @@ button:hover{
 
 <body>
 
-<!-- HERO -->
+<nav class="nav-min">
+    <a href="index.html">← Inicio</a>
+  </nav>
 <section>
   <div class="container">
     <h1 class="scale">Videos cortos<br>que detienen el scroll</h1>
@@ -181,7 +211,7 @@ button:hover{
       <video src="video1.mov" autoplay muted loop playsinline></video>
       <video src="video4.mp4" autoplay muted loop playsinline></video>
       <video src="video2.mp4" autoplay muted loop playsinline></video>
-     
+      <video src="video3.mp4" autoplay muted loop playsinline></video>
     </div>
   </div>
 </section>
@@ -268,4 +298,3 @@ document.querySelectorAll("video").forEach(video=>{
 
 </body>
 </html>
-
