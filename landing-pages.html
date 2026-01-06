@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<title>Landing Pages que convierten</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Landing Pages que convierten</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800;900&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 
-<style>
-body{
-  margin:0;
-  font-family:Inter;
-  background:#050505;
-  color:#fff;
-}
-.nav-min {
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter;
+      background: #050505;
+      color: #fff;
+    }
+
+    .nav-min {
       position: fixed;
       top: 28px;
       left: 28px;
@@ -43,274 +45,317 @@ body{
       background: rgba(0, 0, 0, .6);
       transform: translateX(-4px);
     }
-section{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-}
-.container{
-  max-width:1200px;
-  padding:14vh 6vw;
-  margin:auto;
-}
-h1{
-  font-size:clamp(4rem,9vw,8rem);
-  line-height:1;
-}
-h2{
-  font-size:clamp(2rem,4vw,3rem);
-  margin-bottom:1rem;
-}
-p{
-  max-width:720px;
-  color:rgba(255,255,255,.6);
-  font-size:1.05rem;
-}
 
-/* GALERÍA */
-.projects{
-  display:flex;
-  flex-direction:column;
-  gap:20vh;
-}
-.project{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:4vw;
-  align-items:center;
-}
-.project img{
-  width:100%;
-  border-radius:12px;
-  opacity:.85;
-}
-.project-info span{
-  color:rgba(255,255,255,.4);
-  font-size:.85rem;
-  letter-spacing:.05em;
-}
-.project-info h3{
-  font-size:2.2rem;
-  margin:.6rem 0;
-}
-.project-info a{
-  color:#fff;
-  text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,.3);
-  padding-bottom:2px;
-}
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
 
-.cta{
-  text-align:center;
-}
-.cta h2{
-  font-size:clamp(3rem,6vw,5rem);
-}
+    .container {
+      max-width: 1200px;
+      padding: 14vh 6vw;
+      margin: auto;
+    }
 
-form{
-  margin-top:4rem;
-  max-width:520px;
-}
+    h1 {
+      font-size: clamp(4rem, 9vw, 8rem);
+      line-height: 1;
+    }
 
-label{
-  display:block;
-  font-size:.8rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.4);
-  margin-bottom:.4rem;
-}
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+    }
 
-input, textarea{
-  width:100%;
-  background:transparent;
-  border:none;
-  border-bottom:1px solid rgba(255,255,255,.2);
-  padding:.8rem 0;
-  color:#fff;
-  font-family:Inter;
-  font-size:1rem;
-  margin-bottom:2.2rem;
-}
+    p {
+      max-width: 720px;
+      color: rgba(255, 255, 255, .6);
+      font-size: 1.05rem;
+    }
 
-input:focus, textarea:focus{
-  outline:none;
-  border-color:#fff;
-}
+    /* GALERÍA */
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 20vh;
+    }
 
-button{
-  background:none;
-  border:1px solid rgba(255,255,255,.4);
-  color:#fff;
-  padding:.9rem 2.4rem;
-  font-size:.9rem;
-  letter-spacing:.1em;
-  cursor:pointer;
-}
+    .project {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 4vw;
+      align-items: center;
+    }
 
-button:hover{
-  border-color:#fff;
-}
+    .project img {
+      width: 100%;
+      border-radius: 12px;
+      opacity: .85;
+    }
 
-.cta-link{
-  text-decoration:none;
-  color:#fff;
-  display:inline-block;
-}
+    .project-info span {
+      color: rgba(255, 255, 255, .4);
+      font-size: .85rem;
+      letter-spacing: .05em;
+    }
 
-.cta-link:hover h2{
-  letter-spacing:.02em;
-}
+    .project-info h3 {
+      font-size: 2.2rem;
+      margin: .6rem 0;
+    }
 
-.cta-link h2,
-.cta-link p{
-  transition:.3s ease;
-}
+    .project-info a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, .3);
+      padding-bottom: 2px;
+    }
 
-</style>
+    .cta {
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(3rem, 6vw, 5rem);
+    }
+
+    #contacto {
+      background: #0a0a0a;
+    }
+
+    form {
+      margin-top: 3rem;
+      padding: 3rem;
+      background: #0e0e0e;
+      border-radius: 32px;
+      display: grid;
+      gap: 1.6rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      transition: all .3s ease;
+    }
+
+    label {
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      opacity: .6;
+    }
+
+    input,
+    textarea,
+    select {
+      background: #050505;
+      border: 1px solid rgba(255, 255, 255, .15);
+      color: #fff;
+      padding: 1.2rem 1.5rem;
+      border-radius: 16px;
+      font-size: 1rem;
+      transition: all .3s ease;
+      width: 100%;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255, 255, 255, .4);
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #fff;
+      outline: none;
+      box-shadow: 0 0 20px rgba(255, 255, 255, .15);
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: #050505 url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><polygon points="0,0 12,0 6,6" fill="white"/></svg>') no-repeat right 1rem center/12px auto;
+      cursor: pointer;
+    }
+
+    button {
+      background: #fff;
+      color: #000;
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 50px;
+      font-weight: 900;
+      cursor: pointer;
+      width: fit-content;
+      align-self: start;
+      transition: all .3s ease;
+    }
+
+    button:hover {
+      background: #000;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    }
+        .whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 14px 22px;
+      border-radius: 40px;
+      background: #25d366;
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+      z-index: 99;
+    }
+  </style>
 </head>
 
 <body>
-<nav class="nav-min">
+  <nav class="nav-min">
     <a href="index.html">← Inicio</a>
   </nav>
-<section>
-  <div class="container">
-    <h1 class="fade">Landing Pages<br>que convierten</h1>
-    <p class="slide">Diseño, UX y estrategia. No plantillas.</p>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2 class="twist">Qué hago</h2>
-    <p class="fade">
-      Diseño landing pages enfocadas en conversión, claridad y decisión.
-      Cada proyecto responde a un objetivo real de negocio.
-    </p>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2 class="fade">Proyectos</h2>
-
-    <div class="projects">
-
-      <div class="project reveal">
-        <img src="micro-landing.png" alt="Landing Proyecto 1">
-        <div class="project-info">
-          <span>LANDING PAGE · CONVERSIÓN</span>
-          <h3>Micro-landing comercial</h3>
-          <p>Diseñé una micro-landing para centralizar tráfico y aumentar clics a WhatsApp y catálogo.</p>
-          <a href="micro-landing.html" target="_blank">Ver demo</a>
-        </div>
-      </div>
-
-      <div class="project reveal">
-        <img src="pagina-puente.png" alt="Landing Proyecto 2">
-        <div class="project-info">
-          <span>MARCA · PRESENTACIÓN</span>
-          <h3>Página puente</h3>
-          <p>Página puente enfocada en redirigir tráfico a productos clave y contacto directo.</p>
-          <a href="pagina-puente.html">Ver demo</a>
-        </div>
-      </div>
-
+  <section>
+    <div class="container">
+      <h1 class="fade">Landing Pages<br>que convierten</h1>
+      <p class="slide">Diseño, UX y estrategia. No plantillas.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <div class="container">
-    <h2 class="fade">Cómo trabajo</h2>
-    <p class="slide">
-      Estrategia → Diseño → Optimización.
-      Sin ruido. Sin improvisar.
-    </p>
-  </div>
-</section>
+  <section>
+    <div class="container">
+      <h2 class="twist">Qué hago</h2>
+      <p class="fade">
+        Diseño landing pages enfocadas en conversión, claridad y decisión.
+        Cada proyecto responde a un objetivo real de negocio.
+      </p>
+    </div>
+  </section>
 
-<section>
-  <div class="container cta">
-    <a href="#contacto" class="cta-link">
-      <h2 class="fade">¿Necesitas una landing?</h2>
-      <p class="slide">Hablemos de tu proyecto.</p>
-    </a>
-  </div>
-</section>
-<section id="contacto">
-  <div class="container">
-    <h2 class="twist">Hablemos</h2>
-    <p class="fade">Construyamos algo incómodo.</p>
+  <section>
+    <div class="container">
+      <h2 class="fade">Proyectos</h2>
 
-    <form class="scale" action="https://formspree.io/f/mwpwgzww" method="POST">
-      <label>Nombre</label>
-      <input name="nombre" required>
+      <div class="projects">
 
-      <label>Email</label>
-      <input type="email" name="email" required>
+        <div class="project reveal">
+          <img src="micro-landing.png" alt="Landing Proyecto 1">
+          <div class="project-info">
+            <span>LANDING PAGE · CONVERSIÓN</span>
+            <h3>Micro-landing comercial</h3>
+            <p>Diseñé una micro-landing para centralizar tráfico y aumentar clics a WhatsApp y catálogo.</p>
+            <a href="micro-landing.html" target="_blank">Ver demo</a>
+          </div>
+        </div>
 
-      <label>Mensaje</label>
-      <textarea name="mensaje" rows="4" required></textarea>
+        <div class="project reveal">
+          <img src="pagina-puente.png" alt="Landing Proyecto 2">
+          <div class="project-info">
+            <span>MARCA · PRESENTACIÓN</span>
+            <h3>Página puente</h3>
+            <p>Página puente enfocada en redirigir tráfico a productos clave y contacto directo.</p>
+            <a href="pagina-puente.html">Ver demo</a>
+          </div>
+        </div>
 
-      <button>Enviar</button>
-    </form>
-  </div>
-</section>
+      </div>
+    </div>
+  </section>
 
-<script>
-gsap.registerPlugin(ScrollTrigger);
+  <section>
+    <div class="container">
+      <h2 class="fade">Cómo trabajo</h2>
+      <p class="slide">
+        Estrategia → Diseño → Optimización.
+        Sin ruido. Sin improvisar.
+      </p>
+    </div>
+  </section>
 
-gsap.from(".fade",{
-  opacity:0,
-  y:40,
-  duration:1.4,
-  ease:"power3.out"
-});
+  <section>
+    <div class="container cta">
+      <a href="#contacto" class="cta-link">
+        <h2 class="fade">¿Necesitas una landing?</h2>
+        <p class="slide">Hablemos de tu proyecto.</p>
+      </a>
+    </div>
+  </section>
+  <section id="contacto">
+    <div class="container">
+      <h2 class="twist">Hablemos</h2>
+      <p class="fade">Construyamos algo incómodo.</p>
 
-gsap.from(".slide",{
-  opacity:0,
-  y:80,
-  duration:1.4,
-  delay:.2,
-  ease:"power3.out"
-});
+      <form class="scale" action="https://formspree.io/f/mwpwgzww" method="POST">
+        <label>Nombre</label>
+        <input name="nombre" required>
 
-gsap.from(".twist",{
-  opacity:0,
-  y:60,
-  rotate:-4,
-  duration:1.2,
-  ease:"power3.out"
-});
+        <label>Email</label>
+        <input type="email" name="email" required>
 
-gsap.utils.toArray(".project").forEach((project,i)=>{
-  gsap.from(project,{
-    scrollTrigger:{
-      trigger:project,
-      start:"top 75%"
-    },
-    y:120,
-    opacity:0,
-    duration:1.4,
-    delay:i * .1,
-    ease:"power3.out"
-  });
-});
+        <label>Mensaje</label>
+        <textarea name="mensaje" rows="4" required></textarea>
 
-gsap.from(".scale",{
-  scrollTrigger:{
-    trigger:"#contacto",
-    start:"top 70%"
-  },
-  scale:.95,
-  opacity:0,
-  duration:1.2,
-  ease:"power3.out"
-});
-</script>
+        <button>Enviar</button>
+      </form>
+    </div>
+  </section>
+ <a class="whatsapp" 
+   href="https://wa.me/+573123262091?text=Hola,%20vi%20tu%20portafolio%20y%20quiero%20más%20información%20sobre%20tus%20servicios"
+   target="_blank" rel="noopener">
+   WhatsApp
+</a>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".fade", {
+      opacity: 0,
+      y: 40,
+      duration: 1.4,
+      ease: "power3.out"
+    });
+
+    gsap.from(".slide", {
+      opacity: 0,
+      y: 80,
+      duration: 1.4,
+      delay: .2,
+      ease: "power3.out"
+    });
+
+    gsap.from(".twist", {
+      opacity: 0,
+      y: 60,
+      rotate: -4,
+      duration: 1.2,
+      ease: "power3.out"
+    });
+
+    gsap.utils.toArray(".project").forEach((project, i) => {
+      gsap.from(project, {
+        scrollTrigger: {
+          trigger: project,
+          start: "top 75%"
+        },
+        y: 120,
+        opacity: 0,
+        duration: 1.4,
+        delay: i * .1,
+        ease: "power3.out"
+      });
+    });
+
+    gsap.from(".scale", {
+      scrollTrigger: {
+        trigger: "#contacto",
+        start: "top 70%"
+      },
+      scale: .95,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power3.out"
+    });
+  </script>
 
 
 </body>
+
 </html>
