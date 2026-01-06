@@ -3,47 +3,27 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Design that interrupts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carlitos Le Vende</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800;900&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #050505;
-      --fg: #fff;
-      --muted: rgba(255, 255, 255, .6);
-    }
-
     * {
       margin: 0;
       padding: 0;
-      box-sizing: border-box
+      box-sizing: border-box;
     }
 
     body {
-      font-family: Inter, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      overflow-x: hidden;
-    }
-
-    #intro-video {
-      position: fixed;
-      inset: 0;
-      background: #050505;
-      z-index: 10000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
-    }
-
-    #intro-video video {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
+      align-items: center;
+      background-image: url(media/fondo.jpg);
+      background-size: cover;
+      background-position: center;
     }
 
     .nav-min {
@@ -74,475 +54,159 @@
       transform: translateX(-4px);
     }
 
-    section {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-
     .container {
-      max-width: 1200px;
-      width: 100%;
-      padding: 14vh 6vw;
-      margin: 0 auto;
-      position: relative;
-      z-index: 3;
+      text-align: center;
+      background: rgba(255, 255, 255, .9);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+      width: 90%;
+      max-width: 400px;
+      opacity: 0;
+      transform: translateY(30px);
     }
 
-    @media(max-width:768px) {
-      .container {
-        padding: 10vh 5vw
-      }
-    }
-
-
-    .blend {
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(to bottom, rgba(5, 5, 5, 0), #050505 80%);
-      z-index: 2;
-      pointer-events: none;
-    }
-
-
-    .video-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+    .profile-pic img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #007BFF;
+      margin-bottom: 1rem;
       object-fit: cover;
-      z-index: 0;
-    }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, .55);
-      z-index: 1;
-    }
-
-    .grain {
-      position: absolute;
-      inset: 0;
-      background: url("assets/img/grain.png") repeat;
-      opacity: .08;
-      mix-blend-mode: overlay;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-
-    h1,
-    h2 {
-      font-weight: 900;
-      line-height: .95;
     }
 
     h1 {
-      font-size: clamp(4rem, 9vw, 9rem);
-      letter-spacing: -.02em;
+      font-size: 1.8rem;
+      color: #222;
+      margin-bottom: .5rem;
     }
 
-    h2 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+    .subtitle {
+      font-size: .9rem;
+      color: #555;
+      margin-bottom: 2rem;
     }
 
-    p {
-      max-width: 720px;
-      margin-top: 1.5rem;
-      font-size: 1.15rem;
-      color: var(--muted);
-    }
-
-
-    .hero-scroll {
-      margin-top: 4rem;
-      font-weight: 800;
-      opacity: .6;
-    }
-
-
-    .visual img {
-      width: 100%;
-      max-width: 1100px;
-      border-radius: 28px;
-      margin-top: 4rem;
-    }
-
-    .cards {
+    .links {
       display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 4rem;
+      flex-direction: column;
+      gap: 1rem;
     }
 
-    .card {
-      width: 320px;
-      background: #0e0e0e;
-      padding: 3rem;
-      border-radius: 28px;
-    }
-
-
-    .cta {
-      background: #fff;
-      color: #000;
-      text-align: center;
-    }
-
-    .cta p {
-      color: #333
-    }
-
-    .cta a {
-      display: inline-block;
-      margin-top: 2.5rem;
-      padding: 1rem 3rem;
-      background: #000;
-      color: #fff;
-      border-radius: 50px;
-      font-weight: 900;
-      text-decoration: none;
-    }
-
-
-    #contacto {
-      background: #0a0a0a;
-    }
-
-    form {
-      margin-top: 3rem;
-      padding: 3rem;
-      background: #0e0e0e;
-      border-radius: 32px;
-      display: grid;
-      gap: 1.4rem;
-    }
-
-    label {
-      font-size: .75rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      opacity: .6;
-    }
-
-    input,
-    textarea {
-      background: #050505;
-      border: 1px solid rgba(255, 255, 255, .15);
-      color: #fff;
-      padding: 1.2rem;
-      border-radius: 14px;
-    }
-
-    button {
-      background: #fff;
-      color: #000;
-      border: none;
-      padding: 1rem 3rem;
-      border-radius: 50px;
-      font-weight: 900;
-      cursor: pointer;
-      width: fit-content;
-    }
-
-
-    .fade {
-      opacity: 0
-    }
-
-    .slide {
-      opacity: 0;
-      transform: translateY(100px)
-    }
-
-    .scale {
-      opacity: 0;
-      transform: scale(.9)
-    }
-
-    .twist {
-      opacity: 0;
-      transform: rotate(-6deg) translateY(80px)
-    }
-
-    .cards {
+    .btn {
       display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 4rem;
-    }
-
-    .card {
-      width: 320px;
-      background: #0e0e0e;
-      padding: 3rem;
-      border-radius: 28px;
-      text-decoration: none;
-      color: #fff;
-      display: block;
-      transition: transform .4s cubic-bezier(.2, .8, .2, 1),
-        box-shadow .4s ease;
-    }
-
-    .card h3 {
-      font-size: 1.6rem;
-      font-weight: 800;
-    }
-
-    .card p {
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 1rem;
+      border-radius: 12px;
       font-size: 1rem;
-      margin-top: 1rem;
-      color: rgba(255, 255, 255, .6);
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      transition: .3s ease;
     }
 
-    .card span {
-      display: inline-block;
-      margin-top: 2rem;
-      font-weight: 800;
-      letter-spacing: .02em;
+    .btn i {
+      font-size: 1.3rem
     }
 
-    /* hover premium */
-    .card:hover {
-      transform: translateY(-14px);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, .6);
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, .2);
     }
 
-    .card span {
-      transition: transform .3s ease;
+    .whatsapp {
+      background: #25D366
     }
 
-    .card:hover span {
-      transform: translateX(6px);
+    .instagram {
+      background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4)
     }
 
-
-    #page-transition {
-      position: fixed;
-      inset: 0;
-      background: #050505;
-      z-index: 9999;
-      pointer-events: none;
-      transform: scaleY(0);
-      transform-origin: bottom;
+    .tiktok {
+      background: #000
     }
 
-    .service-card {
-      position: relative;
-      overflow: hidden;
+    .facebook {
+      background: #1877F2
     }
 
-    .service-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: #050505;
-      transform: scaleY(0);
-      transform-origin: bottom;
-    }
+.btn-whatsapp-floating {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 14px 22px;
+  border-radius: 50px;
+  background: #25d366;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 99;
+  transition: all .3s ease;
+}
+
+.btn-whatsapp-floating:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
   </style>
 </head>
 
 <body>
-  <div id="intro-video">
-    <video autoplay muted playsinline>
-      <source src="intro.mp4" type="video/mp4">
-    </video>
+  <div class="nav-min">
+    <a href="../landing-pages.html">← Volver</a>
   </div>
-  <nav class="nav-min">
-    <a href="index.html">← Inicio</a>
-  </nav>
-  <section>
-   <video class="video-bg" autoplay muted loop playsinline preload="auto">
-  <source src="hero.mp4" type="video/mp4">
-</video>
-
-    <div class="container">
-      <h1 class="fade">Design<br>that<br>interrupts</h1>
-      <p class="slide">No competimos por atención.<br>La tomamos.</p>
-      <span class="hero-scroll fade">Scroll ↓</span>
+  <div class="container">
+    <div class="profile-pic">
+      <img src="/carlitos_le_vende/media/foto de perfil.jpg" alt="Foto de perfil">
     </div>
-    <div class="blend"></div>
-  </section>
 
-  <section>
-    <video class="video-bg" autoplay muted loop playsinline preload="auto">
-  <source src="manifiesto.mp4" type="video/mp4">
-</video>
+    <h1>Carlitos Le Vende</h1>
+    <p class="subtitle">
+      📱 Celulares · Tablets · Accesorios<br>
+      🚚 Envíos seguros en toda Colombia
+    </p>
 
-
-    <div class="container">
-      <h2 class="twist">El scroll<br>no espera</h2>
-      <p class="fade">Si no entras fuerte, desapareces.</p>
-    </div>
-    <div class="blend"></div>
-  </section>
-
-  <section class="visual">
-    <div class="container">
-      <h2 class="slide">Visual como lenguaje</h2>
-      <p class="fade">Imagen, ritmo y narrativa.</p>
-      <img class="scale" src="visual.png">
-    </div>
-    <div class="blend"></div>
-  </section>
-
-  <section>
-    <div class="cards">
-
-      <a href="landing-pages.html" class="card slide service-card">
-        <h3>Landing Pages</h3>
-        <p>Estructura que convierte.</p>
-        <span>Explorar →</span>
+    <div class="links">
+      <a href="https://wa.me/573218172438" target="_blank" class="btn whatsapp">
+        <i class="fab fa-whatsapp"></i> WhatsApp
       </a>
 
-      <a href="contenido.html" class="card scale service-card">
-        <h3>Contenido</h3>
-        <p>Visuales y video.</p>
-        <span>Explorar →</span>
+      <a href="https://www.instagram.com/carlitoslevende/" target="_blank" class="btn instagram">
+        <i class="fab fa-instagram"></i> Instagram
       </a>
 
+      <a href="https://www.tiktok.com/@carlitoslevende_" target="_blank" class="btn tiktok">
+        <i class="fab fa-tiktok"></i> TikTok
+      </a>
+
+      <a href="https://www.facebook.com/p/Carlitosvende-100045449417873/" target="_blank" class="btn facebook">
+        <i class="fab fa-facebook"></i> Facebook
+      </a>
     </div>
-
-    <div class="blend"></div>
-  </section>
-
-
-  <section class="cta">
-    <div class="container">
-      <h2 class="scale">Esto no es para todos</h2>
-      <p class="fade">Solo marcas listas.</p>
-      <a class="slide" href="#contacto">Iniciar proyecto</a>
-    </div>
-  </section>
-
-  <section id="contacto">
-    <div class="container">
-      <h2 class="twist">Hablemos</h2>
-      <p class="fade">Construyamos algo incómodo.</p>
-
-      <form class="scale" action="https://formspree.io/f/mwpwgzww" method="POST">
-        <label>Nombre</label>
-        <input name="nombre" required>
-        <label>Email</label>
-        <input type="email" name="email" required>
-        <label>Mensaje</label>
-        <textarea name="mensaje" rows="4" required></textarea>
-        <button>Enviar</button>
-      </form>
-    </div>
-  </section>
+  </div>
+<a href="https://wa.me/+573123262091?text=Hola,%20vi%20tu%20portafolio%20y%20quiero%20más%20información%20sobre%20tus%20servicios"
+   target="_blank" rel="noopener"
+   class="btn-whatsapp-floating">
+   <i class="fab fa-whatsapp"></i> WhatsApp
+</a>
 
   <script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    [
-      [".fade", { opacity: 0 }, { opacity: 1 }],
-      [".slide", { y: 120, opacity: 0 }, { y: 0, opacity: 1 }],
-      [".scale", { scale: .85, opacity: 0 }, { scale: 1, opacity: 1 }],
-      [".twist", { rotate: -6, y: 100, opacity: 0 }, { rotate: 0, y: 0, opacity: 1 }]
-    ].forEach(([cls, from, to]) => {
-      gsap.utils.toArray(cls).forEach(el => {
-        gsap.fromTo(el, from, {
-          ...to,
-          duration: 1.4,
-          ease: "power4.out",
-          scrollTrigger: { trigger: el, start: "top 85%" }
-        });
-      });
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.querySelector(".container");
+      setTimeout(() => {
+        container.style.transition = "all .8s ease";
+        container.style.opacity = 1;
+        container.style.transform = "translateY(0)";
+      }, 200);
     });
-
-    gsap.utils.toArray(".video-bg").forEach(v => {
-      gsap.to(v, { y: "-15%", ease: "none", scrollTrigger: { scrub: true } });
-    });
-
-    gsap.to(".hero-scroll", { y: 10, repeat: -1, yoyo: true, duration: 1.2 });
-
-    /* PAGE TRANSITION */
-    document.querySelectorAll("a[href]").forEach(link => {
-      link.addEventListener("click", e => {
-        const url = link.getAttribute("href");
-
-        if (url.startsWith("#") || url.startsWith("http")) return;
-
-        e.preventDefault();
-
-        gsap.to("#page-transition", {
-          scaleY: 1,
-          duration: .8,
-          ease: "power4.inOut",
-          onComplete: () => window.location.href = url
-        });
-      });
-    });
-
-    /* reveal on load */
-    gsap.fromTo("#page-transition",
-      { scaleY: 1, transformOrigin: "top" },
-      { scaleY: 0, duration: .8, ease: "power4.inOut" }
-    );
-
-    document.querySelectorAll(".service-card").forEach(card => {
-      card.addEventListener("click", e => {
-        e.preventDefault();
-        const url = card.getAttribute("href");
-
-        gsap.to(card, {
-          scale: 1.05,
-          duration: .3,
-          ease: "power2.out"
-        });
-
-        gsap.to(card, {
-          opacity: 0,
-          duration: .4,
-          delay: .2
-        });
-
-        gsap.to("#page-transition", {
-          scaleY: 1,
-          duration: .8,
-          ease: "power4.inOut",
-          onComplete: () => window.location.href = url
-        });
-      });
-    });
-    const intro = document.getElementById("intro-video");
-    const introVideo = intro.querySelector("video");
-
-    introVideo.play();
-
-    setTimeout(() => {
-      gsap.to(intro, {
-        y: "100%",
-        duration: 1,
-        ease: "power4.inOut",
-        onComplete: () => {
-          introVideo.pause();
-          intro.remove();
-        }
-      });
-    }, 3000);
-
-
   </script>
-  <div id="page-transition"></div>
-  <svg width="0" height="0">
-    <filter id="melt">
-      <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="2" seed="2" result="noise" />
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" />
-    </filter>
-  </svg>
 
 </body>
 
 </html>
-
-
-
